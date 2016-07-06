@@ -1,3 +1,3 @@
 module.exports = {
-    'url': 'mongodb://'+process.env.mLab_user+':'+process.env.mLab_pass+'@ds011734.mlab.com:11734/poo-moo'
+    'url': 'mongodb://'+process.env.PM_DB_USER+':'+process.env.PM_DB_PASS+'@ds011734.mlab.com:11734/poo-moo'
 };

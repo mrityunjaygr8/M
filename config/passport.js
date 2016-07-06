@@ -6,7 +6,7 @@ var User = require('../app/models/user.js');
 
 
 var configAuth = require('./auth');
-
+// console.log(configAuth.facebookAuth.clientID);
 
 module.exports = function(passport){
     passport.serializeUser(function(user, done){
