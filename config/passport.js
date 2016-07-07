@@ -131,8 +131,8 @@ module.exports = function(passport){
     }));
 
     passport.use('google', new googleStrategy({
-        consumerKey        : configAuth.googleAuth.clientID,
-        consumerSecret    : configAuth.googleAuth.clientSecret,
+        clientID        : configAuth.googleAuth.clientID,
+        clientSecret    : configAuth.googleAuth.clientSecret,
         callbackURL     : configAuth.googleAuth.callbackURL
     },
     function(token, refreshToken, profile, done){
