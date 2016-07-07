@@ -67,7 +67,9 @@ module.exports = function(passport){
     passport.use('facebook', new facebookStrategy({
         clientID: configAuth.facebookAuth.clientID,
         clientSecret: configAuth.facebookAuth.clientSecret,
-        callbackURL: configAuth.facebookAuth.callbackURL
+        callbackURL: configAuth.facebookAuth.callbackURL,
+        profileFields: ['id', 'emails', 'name'],
+        passReqToCallback : true,
     },
     function(token, refreshToken, profile, done){
         process.nextTick(function(){
@@ -82,7 +84,7 @@ module.exports = function(passport){
                     newUser.facebook.id = profile.id;
                     newUser.facebook.token = token;
                     newUser.facebook.name = profile.name.givenName + ' ' + profile.name.familyName;
-                    // newUser.facebook.email = profile.emails[0].value;
+                    newUser.facebook.email = profile.emails[0].value;
 
                     newUser.save(function(err){
                         if(err)
