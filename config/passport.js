@@ -137,12 +137,12 @@ module.exports = function(passport){
     },
     function(token, refreshToken, profile, done){
         process.nextTick(function(){
-            User.findOne({ 'google.id': profile.id}, function(err,user){
+            User.findOne({ 'google.id': profile.id}, function(err, user){
                 if(err)
                     return done(err);
 
                 if(user){
-                    done(null, user);
+                    return done(null, user);
                 } else {
                     var newUser = new User();
 
