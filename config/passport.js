@@ -69,7 +69,7 @@ module.exports = function(passport){
         clientSecret: configAuth.facebookAuth.clientSecret,
         callbackURL: configAuth.facebookAuth.callbackURL,
         profileFields: ['id', 'emails', 'name'],
-        passReqToCallback : true,
+        // passReqToCallback : true,
     },
     function(token, refreshToken, profile, done){
         process.nextTick(function(){
