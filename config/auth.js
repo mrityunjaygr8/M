@@ -10,8 +10,8 @@ module.exports = {
         'callbackURL': process.env.PM_TW_URL,
     },
     'googleAuth': {
-        'clientID': process.env.PM_FB_ID,
-        'clientSecret': process.env.PM_FB_SECRET,
-        'callbackURL': process.env.PM_FB_URL
+        'clientID': process.env.PM_GO_ID,
+        'clientSecret': process.env.PM_GO_SECRET,
+        'callbackURL': process.env.PM_GO_URL
     }
 };
