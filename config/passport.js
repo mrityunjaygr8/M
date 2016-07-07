@@ -113,11 +113,11 @@ module.exports = function(passport){
                 }  else {
                     var newUser = new User();
                     console.log(profile.username, profile.displayName);
-                    
+
                     newUser.twitter.id = profile.id;
                     newUser.twitter.token = token;
                     newUser.twitter.username = profile.username;
-                    newUser.twitter.displayName = profile.displayName;
+                    newUser.twitter.name = profile.displayName;
 
                     newUser.save(function(err){
                         if(err)
