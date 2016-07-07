@@ -68,6 +68,55 @@ module.exports = function(app,passport){
                 successRedirect: '/profile',
                 failureRedirect: '/'
             }));
+
+
+        // Local Authorization
+
+        app.get('/connect/local', function(req, res){
+            res.render('connect-local.ejs', {message: req.flash('loginMessage')});
+        });
+
+        app.post('/connect/local', passport.authorize('local-signup', {
+            successRedirect: '/profile',
+            failureRedirect: '/connect/local',
+            failureFlasg: true
+        }));
+
+        // facebook authorize
+        app.get('/connect/facebook', passport.authorize('facebook', {scope: 'email'}));
+        app.get('/connect/facebook/callback',
+            passport.authorize('facebook', {
+                successRedirect: '/profile',
+                failureRedirect: '/'
+            }));
+
+        // twitter --------------------------------
+
+        // send to twitter to do the authentication
+        app.get('/connect/twitter', passport.authorize('twitter', { scope : 'email' }));
+
+        // handle the callback after twitter has authorized the user
+        app.get('/connect/twitter/callback',
+            passport.authorize('twitter', {
+                successRedirect : '/profile',
+                failureRedirect : '/'
+            }));
+
+
+        // google ---------------------------------
+
+        // send to google to do the authentication
+        app.get('/connect/google', passport.authorize('google', { scope : ['profile', 'email'] }));
+
+        // the callback after google has authorized the user
+        app.get('/connect/google/callback',
+            passport.authorize('google', {
+                successRedirect : '/profile',
+                failureRedirect : '/'
+            }));
+
+
+
         // =====================================
         // LOGOUT ==============================
         // =====================================
