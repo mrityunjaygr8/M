@@ -61,7 +61,8 @@ module.exports = function(app,passport){
             }));
 
 
-        app.get('/auth/google', passport.authenticate('google'));
+        app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email']}));
+
         app.get('/auth/google/callback',
             passport.authenticate('google', {
                 successRedirect: '/profile',
@@ -79,7 +80,7 @@ module.exports = function(app,passport){
     // route middleware to make sure a user is logged in
     function isLoggedIn(req, res, next) {
 
-        // if user is authenticated in the session, carry on 
+        // if user is authenticated in the session, carry on
         if (req.isAuthenticated())
             return next();
 
