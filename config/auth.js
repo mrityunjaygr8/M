@@ -7,7 +7,7 @@ module.exports = {
     'twitterAuth': {
         'consumerKey': process.env.PM_TW_KEY,
         'consumerSecret': process.env.PM_TW_SECRET,
-        'callbackURL': process.env.PM_TW_URL,
+        'callbackURL': process.env.PM_TW_URL
     },
     'googleAuth': {
         'clientID': process.env.PM_GO_ID,
