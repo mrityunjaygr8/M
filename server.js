@@ -15,6 +15,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
+var dotenv = require('dotenv');
+dotenv.load();
+
 // var configDB = 'mongodb://'+process.env.mLab_user+':'+process.env.mLab_pass+'@ds011734.mlab.com:11734/poo-moo';
 var configDB = require('./config/database');
 // console.log(configDB.url);
