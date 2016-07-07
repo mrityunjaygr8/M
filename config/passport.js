@@ -105,7 +105,8 @@ module.exports = function(passport){
     function(token, tokenSecret, profile, done){
         process.nextTick(function(){
             User.findOne({ 'twitter.id': profile.id }, function(err, user){
-                console.log(profile);
+                console.log(profile.username, profile.displayName);
+
                 if(err)
                     return done(err);
 
